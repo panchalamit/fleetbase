@@ -1,0 +1,21 @@
+{
+    "name": "amitpanchal/fleetbase",
+    "description": "This is fleetbase project",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fleetbase\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "amit panchal",
+            "email": "amit.panchal@devitpl.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "7.4.x-dev"
+    }
+}
