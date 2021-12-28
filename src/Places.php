@@ -1,8 +1,9 @@
 <?php 
 namespace Fleetbase;
 
-require '../vendor/autoload.php';
-
+$docRoot = dirname(__DIR__);
+$basepath = str_replace("/vendor/amitpanchal/fleetbase","", $docRoot);
+require_once $basepath.'/vendor/autoload.php';
 
 
 class Places {
