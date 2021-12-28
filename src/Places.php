@@ -7,30 +7,40 @@ require_once $basepath.'/vendor/autoload.php';
 
 
 class Places {
-     /**
-     * get IP address of the user
-     *
-     * @return void
-     */
-    public function list()
+    //
+    public function index() 
     {
+        // $bearerToken = $request->bearerToken();
+        // $headers= array('Authorization' => 'Bearer'.$bearerToken);
+
         $headers= array('Authorization' => 'Bearer flb_live_6pHEcNFoSKHLFqsWc3Sm');
 
         $client = new \GuzzleHttp\Client([
             'headers' => $headers
         ]);
 
-        
-        // $client = new \GuzzleHttp\Client([
-        //     'headers' => $headers
-        // ]);
- 
         $r = $client->request('GET', 'https://api.fleetbase.io/v1/drivers');
         $response = $r->getBody()->getContents();
-        
-        echo "working";
-        echo $response;die;
+
+        return $response;
     }
+
+    //
+    public function create($request) 
+    {
+        $params = $request->input();
+        $headers= array('Authorization' => 'Bearer flb_live_6pHEcNFoSKHLFqsWc3Sm');
+
+        $client = new \GuzzleHttp\Client([
+            'headers' => $headers
+        ]);
+       
+        $r = $client->request('POST', 'https://api.fleetbase.io/v1/drivers', ['form_params' =>$params]);
+        $response = $r->getBody()->getContents();
+
+        return $response;
+    }
+    
 }
 
 // $a = new Places();
